@@ -1,0 +1,98 @@
+ horizon_days              feature_set                model    AUROC    AUPRC       F1  Balanced accuracy    Brier
+           28               Cumulative  Logistic regression 0.648595 0.569456 0.610793           0.598184 0.236919
+           28 Temporal virtual sensing  Logistic regression 0.670359 0.606626 0.581829           0.623238 0.227858
+           56               Cumulative  Logistic regression 0.670789 0.575402 0.608192           0.612687 0.232597
+           56 Temporal virtual sensing  Logistic regression 0.720975 0.652111 0.612688           0.661869 0.212769
+           84               Cumulative  Logistic regression 0.688565 0.579872 0.605825           0.626002 0.229008
+           84 Temporal virtual sensing  Logistic regression 0.750609 0.692523 0.625263           0.681626 0.200644
+           56               Cumulative        Random forest 0.683565 0.607030 0.584768           0.630871 0.224172
+           56 Temporal virtual sensing        Random forest 0.733755 0.683205 0.613258           0.668448 0.205228
+           56               Cumulative HistGradientBoosting 0.685186 0.610694 0.517798           0.617231 0.218154
+           56 Temporal virtual sensing HistGradientBoosting 0.732277 0.680809 0.573754           0.659515 0.202344
+
+Ablation
+         feature_set    AUROC    AUPRC       F1  Balanced accuracy    Brier
+               Full 0.720975 0.652111 0.612688           0.661869 0.212769
+     Without trends 0.715760 0.640628 0.604097           0.655306 0.215002
+Without variability 0.717104 0.647217 0.606411           0.659069 0.213937
+    Cumulative only 0.670789 0.575402 0.608192           0.612687 0.232597
+
+Profiles
+  profile     n  risk_rate  withdrawn_rate  fail_rate
+       0  4678   0.278752        0.120351   0.158401
+       1 21844   0.450146        0.161600   0.288546
+
+Strata
+ risk_stratum     n  observed_risk  mean_probability
+         Low 13261       0.264158          0.327354
+    Moderate  7956       0.480895          0.562005
+        High  5305       0.717813          0.796565
+
+Capacity
+  capacity_fraction    k  precision_at_k  recall_at_k
+              0.05 1327        0.859834     0.102451
+              0.10 2653        0.819450     0.195205
+              0.15 3979        0.759739     0.271438
+              0.20 5305        0.717813     0.341923
+              0.30 7957        0.660173     0.471671
+
+Audit
+ {
+  "n_enrolments": 32593,
+  "n_unique_students": 28785,
+  "landmark_sample_sizes": {
+    "28": 27538,
+    "56": 26522,
+    "84": 25724
+  },
+  "n_presentations": 22,
+  "outcomes": {
+    "Pass": 12361,
+    "Withdrawn": 10156,
+    "Fail": 7052,
+    "Distinction": 3024
+  },
+  "channel_map": {
+    "oucontent": "content",
+    "resource": "content",
+    "page": "content",
+    "url": "content",
+    "folder": "content",
+    "htmlactivity": "content",
+    "dualpane": "content",
+    "subpage": "navigation",
+    "homepage": "navigation",
+    "sharedsubpage": "navigation",
+    "repeatactivity": "navigation",
+    "quiz": "assessment",
+    "externalquiz": "assessment",
+    "questionnaire": "assessment",
+    "forumng": "communication",
+    "glossary": "communication",
+    "oucollaborate": "collaboration",
+    "ouwiki": "collaboration",
+    "ouelluminate": "collaboration",
+    "dataplus": "enrichment"
+  },
+  "bootstrap_temporal_minus_cumulative": {
+    "AUROC": [
+      0.048633891076148496,
+      0.03709466850887916,
+      0.058466581073772755
+    ],
+    "AUPRC": [
+      0.07376428187651213,
+      0.05927806582985497,
+      0.08963966283601195
+    ]
+  },
+  "cross_module": {
+    "leave_one_module_out": {
+      "AUROC": 0.6956101467850302,
+      "AUPRC": 0.6103661587987381,
+      "F1": 0.6052944797865791,
+      "Balanced accuracy": 0.6408083896403083,
+      "Brier": 0.22673395947231548
+    }
+  }
+}
